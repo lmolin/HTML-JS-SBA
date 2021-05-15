@@ -1,0 +1,25 @@
+.jumbotron {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1em solid #0a0b34;
+  border-radius: 0px;
+}
+
+img {
+  width: 60%;
+  height: auto;
+  min-height: 800px;
+  min-width: 800px;
+  position: absolute;
+  left: 50%;
+  top: -30%;
+  transition: all ease-in-out 5s;
+}
+
+img:hover {
+  transform: rotate(360deg);
+}
+
+p {
+  padding-right: 50%;
+}
