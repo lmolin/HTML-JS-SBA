@@ -12,12 +12,14 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <!-- Jumbotron -->
+    <!-- Begin jumbotron 
+Contains header info and animated image -->
     <main class="jumbotron">
       <img src="images/earth-3316984_1280-trimmy.png" />
+      <!--photo by Pixabay, edited via trimmy.io-->
       <h1>Louisa Molin</h1>
       <hr class="my-4" />
-      <p>
+      <p style="padding-right: 50%">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
         suscipit sed rem, hic iure eaque, maxime praesentium illum, numquam
         debitis eos quae repudiandae molestiae? Harum fuga voluptates itaque
@@ -27,5 +29,53 @@
       </p>
       <button class="btn btn-primary">Get Started</button>
     </main>
+
+    <!-- Begin grid
+Contains links using bootstrap cards -->
+    <div class="row container-fluid" style="justify-content: space-around">
+      <section class="col-md-4"></section>
+
+      <!--EPA link -->
+      <article class="card col-md-2 p-0">
+        <img class="card-img-top" src="images/pexels-pixabay-414837.jpg" />
+        <!--photo by Pixabay-->
+        <div class="card-body">
+          <h4 class="card-title">Carbon Footprint Calculator</h4>
+          <p class="card-text">
+            Find your real carbon footprint with the official calculator from
+            EPA.gov.
+            <a
+              href="https://www3.epa.gov/carbon-footprint-calculator/"
+              class="stretched-link"
+            ></a>
+          </p>
+        </div>
+      </article>
+
+      <!-- survey link -->
+      <article class="card col-md-2 p-0">
+        <img class="card-img-top" src="images/pexels-lukas-590022.jpg" />
+        <!--Photo by Lukas from Pexels-->
+        <div class="card-body">
+          <h4 class="card-title">Take our Survey</h4>
+          <p class="card-text">
+            Click here to help improve our site by taking a brief survey.
+          </p>
+        </div>
+      </article>
+
+      <!--Per Scholas link-->
+      <article class="card col-md-2 p-0">
+        <img class="card-img-top" src="images/pexels-fauxels-3184163.jpg" />
+        <div class="card-body">
+          <h4 class="card-title">Perscholas.org</h4>
+          <p class="card-text">
+            Learn to make cool websites like this by applying to a course from
+            Per Scholas!
+            <a href="https://perscholas.org/" class="stretched-link"></a>
+          </p>
+        </div>
+      </article>
+    </div>
   </body>
 </html>
