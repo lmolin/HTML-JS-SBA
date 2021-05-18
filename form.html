@@ -16,10 +16,16 @@
         background-color: white;
         border-radius: 5px;
         padding-top: 2em;
+        padding-bottom: 2em;
+        margin-bottom: 1em;
+      }
+
+      .form-control {
+        max-width: 600px;
       }
     </style>
   </head>
-  <body style="background-color: darkslateblue">
+  <body onload="fillStateSelect()" style="background-color: darkslateblue">
     <!--begin navbar -->
     <nav
       class="navbar navbar-expand-md navbar-dark bg-dark sticky-top"
@@ -54,36 +60,122 @@
     <!-- Begin form section -->
     <div class="row" style="justify-content: center; margin: 0px">
       <div class="col-10">
-        <h1>Let's get some information about you.</h1>
+        <h1>Please answer a few questions.</h1>
         <hr class="my-4" />
         <form>
-          <h2>Electricity Use</h2>
+          <h2>Basic information</h2>
+          <br />
           <div class="form-group">
-            <label for="state">Which state do you live in? </label>
-            <select class="form-control">
-              <option>Pennsylvania</option>
-            </select>
+            <!-- get first name -->
+            <label for="first-name">First name:</label>
+            <input
+              type="text"
+              class="form-control required"
+              id="first-name"
+              required
+            /><small class="text-danger">Required</small>
+          </div>
+          <!-- get last name -->
+          <div class="form-group">
+            <label for="last-name">Last name:</label>
+            <input type="text" class="form-control" id="last-name" />
+          </div>
+          <!-- get email address -->
+          <div class="form-group">
+            <label for="email"
+              >Email address:<br />
+              <small>This website will not send you any emails.</small></label
+            >
+            <input type="email" class="form-control" id="email" />
+          </div>
+          <hr my-4 />
+          <h2>Electricity Use</h2>
+          <br />
+          <div class="form-group">
+            <!-- get state (country is assumed to be USA) -->
+            <label for="state-select">Which state do you live in? </label>
+            <select class="form-control required" id="state-select" required>
+              <option></option></select
+            ><small class="text-danger">Required</small>
+          </div>
+          <div class="form-group">
+            <label for="energy"
+              >How many kilowatt-hours of energy do you use in your household
+              per year?<br />
+              <small
+                >The average American household uses 1,600 kWh per year.</small
+              >
+            </label>
+            <input
+              type="number"
+              id="energy"
+              class="form-control required"
+              required
+            /><small class="text-danger">Required</small>
           </div>
           <hr class="my-4" />
-          <!-- get car type -->
+          <h2>Vehicle Information</h2>
+          <br />
+          <!-- get fuel type -->
           <div class="form-group">
-            <label for="vehicle">What kind of vehicle do you drive?</label>
-            <input type="text" id="vehicle" class="form-control" />
+            <label for="form-check-gasoline"
+              >What type of fuel does your car use?</label
+            >
+            <div class="form-check" id="form-check-gasoline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="fuel-type"
+                id="gasoline"
+                checked
+              />
+              <label class="form-check-label" for="gasoline">Gasoline</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                name="fuel-type"
+                type="radio"
+                id="diesel"
+              />
+              <label class="form-check-label" for="diesel">Diesel</label>
+            </div>
+          </div>
+          <!-- get gas mileage -->
+          <div class="form-group">
+            <label for="mileage"
+              >What is your car's fuel efficiency (in miles per gallon)?</label
+            >
+            <input
+              type="number"
+              id="mileage"
+              class="form-control required"
+              required
+            /><small class="text-danger">Required</small>
           </div>
           <!-- Get miles driven -->
           <div class="form-group">
-            <label for="miles">
+            <label for="distance">
               How many miles do you drive per year? <br />
-              <small
-                >For reference, the average American drives 13,500 miles per
-                year.</small
-              >
+              <small>The average American drives 13,500 miles per year.</small>
             </label>
-            <input type="text" id="miles" class="form-control" />
+            <input
+              type="number"
+              id="distance"
+              class="form-control required"
+              required
+            /><small class="text-danger">Required</small>
           </div>
-          <!---->
+          <hr class="my-4" />
+          <!-- Submit button -->
+          <input
+            class="btn btn-lg btn-primary"
+            type="submit"
+            onclick="getValues()"
+          />
         </form>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
