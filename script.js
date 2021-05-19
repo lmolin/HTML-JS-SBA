@@ -1,6 +1,14 @@
-/* check that all required inputs are filled */
+/* Program: script.js
+   Author: Louisa Molin
+   contains functions for reading and manipulating inputs from form.html.
+   console.log used to test that functions are called correctly. */
 
+console.log("connected to script.js");
+
+/* validateFields returns true if all required inputs are filled,
+   false if not. */
 function validateFields() {
+    console.log("validateFields called");
     var allFieldsValid = true;
 
     var requiredList = document.getElementsByClassName("required");
@@ -9,52 +17,57 @@ function validateFields() {
 
         if (field.value == "") {
             allFieldsValid = false;
+            alert("Please fill all required fields.");
             break;
         }
     }
 
+    console.log("all fields valid:" + allFieldsValid);
     return allFieldsValid;
 }
 
-/* Receive values from form */
-var fName;
-var lName;
-var email;
-var userState;
-var electricity;
-var fuelType;
-var userMileage;
-var milesDriven;
+/* Receive values from form and calculates emissions,
+   then passes them as query string */
+var url;
 
 function getValues() {
 
-    if (allFieldsValid()) {
+    if (validateFields()) {
+        console.log("getValues was called");
+
         //get general values
-        fName = document.getElementById("first-name").value;
-        lName = document.getElementById("last-name").value;
-        email = document.getElementById("email").value;
+        var fName = document.getElementById("first-name").value;
+        var lName = document.getElementById("last-name").value;
+        var email = document.getElementById("email").value;
 
         //get electricity values
-        userState = document.getElementById("state-select").value;
-        electricity = document.getElementById("energy").value;
+        var userState = document.getElementById("state-select").value;
+        var electricity = document.getElementById("energy").value;
 
         //get fuel type
         if (document.getElementById("gasoline").checked) {
-            fuelType = 0;
+            var fuelType = 0;
         }
         else if (document.getElementById("diesel").checked) {
-            fuelType = 1;
+            var fuelType = 1;
         }
 
         //get gas mileage
-        userMileage = document.getElementById("mileage").value;
+        var userMileage = document.getElementById("mileage").value;
 
         //get miles driven
-        milesDriven = document.getElementById("distance").value;
+        var milesDriven = document.getElementById("distance").value;
 
-        alert("success!");
+        //calculate emissions
+        var eEmissions = getElectricityEmissions(userState, electricity);
+        var cEmissions = getCarEmissions(userMileage, milesDriven, fuelType);
+
+        //create query string
+        url = "final.html" + "?name=" + fName + "&eEm=" + eEmissions + "&cEm=" + cEmissions; 
+
+        //enable next button
+        window.open(url, "_self");
     }
-    else {alert("Please fill out all required fields.");}
 }
 
 
@@ -94,10 +107,6 @@ function getElectricityEmissions(state, kwh) {
 }
 
 /* Car emissions calculation  */
-
-var mileage;
-var distance;
-var fuelType;
 
 function getCarEmissions(mileage, distance, fuelType) {
     if (fuelType == 1) {

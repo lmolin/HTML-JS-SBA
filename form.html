@@ -12,6 +12,19 @@
       crossorigin="anonymous"
     />
     <style>
+      body {
+        background-color: darkslateblue;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 18px;
+      }
+
+      h1,
+      h2,
+      .text-danger,
+      .header-style {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
       .col-10 {
         background-color: white;
         border-radius: 5px;
@@ -25,10 +38,15 @@
       }
     </style>
   </head>
-  <body onload="fillStateSelect()" style="background-color: darkslateblue">
+  <body onload="fillStateSelect()">
     <!--begin navbar -->
     <nav
-      class="navbar navbar-expand-md navbar-dark bg-dark sticky-top"
+      class="
+        navbar navbar-expand-md navbar-dark
+        bg-dark
+        sticky-top
+        header-style
+      "
       style="margin-bottom: 1em"
     >
       <button
@@ -51,7 +69,7 @@
             <a class="nav-link" href="#">Form</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Page 3</a>
+            <a class="nav-link disabled" href="final.html" disabled>Results</a>
           </li>
         </ul>
       </div>
@@ -103,7 +121,7 @@
               >How many kilowatt-hours of energy do you use in your household
               per year?<br />
               <small
-                >The average American household uses 1,600 kWh per year.</small
+                >The average American household uses 10,600 kWh per year.</small
               >
             </label>
             <input
@@ -167,13 +185,14 @@
             /><small class="text-danger">Required</small>
           </div>
           <hr class="my-4" />
-          <!-- Submit button -->
-          <input
-            class="btn btn-lg btn-primary"
-            type="submit"
-            onclick="getValues()"
-          />
         </form>
+        <!-- Submit button -->
+        <button
+          class="btn btn-lg btn-primary header-style"
+          onclick="getValues(); return false;"
+        >
+          Submit
+        </button>
       </div>
     </div>
     <script src="script.js"></script>
