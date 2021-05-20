@@ -3,9 +3,10 @@
   overflow: hidden;
   border-bottom: 1em solid #0a0b34;
   border-radius: 0px;
+  padding-bottom: 2em;
 }
 
-img {
+.jumbotron > img {
   width: 60%;
   height: auto;
   min-height: 800px;
@@ -16,10 +17,16 @@ img {
   transition: all ease-in-out 5s;
 }
 
-img:hover {
+.jumbotron > img:hover {
   transform: rotate(360deg);
 }
 
-p {
-  padding-right: 50%;
+.card-img-top {
+  width: 100%;
+  height: 10em;
+  object-fit: cover;
+}
+
+.card:hover {
+  filter: drop-shadow(0 0 0.2em grey);
 }
