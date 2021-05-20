@@ -1,3 +1,14 @@
+body {
+  background-color: lightgray;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.header-style {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .jumbotron {
   position: relative;
   overflow: hidden;
@@ -26,8 +37,12 @@
 
 .card-img-top {
   width: 100%;
-  height: 10em;
+  height: 12em;
   object-fit: cover;
+}
+
+.card-title {
+  font-weight: bold;
 }
 
 .card:hover {

@@ -14,31 +14,29 @@
     <!--External stylesheet link-->
     <link rel="stylesheet" href="indexstyle.css" />
   </head>
-  <body style="background-color: lightgrey">
+  <body>
     <!-- Begin jumbotron 
 Contains header info and animated image -->
-    <main class="jumbotron">
+    <main class="jumbotron header-style">
       <img src="images/earth-3316984_1280-trimmy.png" />
       <!--photo by Pixabay, edited via trimmy.io-->
-      <h1>Can you go net-zero?</h1>
+      <h1 style="padding-right: 50%">Can you go net-zero?</h1>
       <hr
         class="my-4"
         color="white"
         style="width: 50%; text-align: left; margin-left: 0px"
       />
-      <p style="padding-right: 50%">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-        suscipit sed rem, hic iure eaque, maxime praesentium illum, numquam
-        debitis eos quae repudiandae molestiae? Harum fuga voluptates itaque
-        totam molestias voluptas, ipsa voluptate aspernatur corrupti quibusdam
-        magni dignissimos fugit hic quia quam a odio error! Tempore hic nisi
-        molestias tempora!
+      <p style="padding-right: 50%; font-weight: lighter">
+        Many companies these days are making the pledge to achieve net-zero carbon emissions.
+        But just how much does it take to achieve carbon neutrality? 
+        Take this survey to find out just what you would need to do to "go net-zero".
       </p>
+      <a href="form.html"><button class="btn btn-lg btn-primary header-style">Get Started</button></a>
     </main>
 
     <!--begin navbar -->
     <nav
-      class="navbar navbar-expand-md navbar-dark bg-dark sticky-top"
+      class="navbar navbar-expand-md navbar-dark bg-dark sticky-top header-style"
       style="margin-bottom: 1em"
     >
       <button
@@ -61,7 +59,7 @@ Contains header info and animated image -->
             <a class="nav-link" href="form.html">Form</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Page 3</a>
+            <a class="nav-link disabled" href="final.html">Results</a>
           </li>
         </ul>
       </div>
@@ -69,9 +67,9 @@ Contains header info and animated image -->
 
     <!-- Begin grid -->
     <!-- Info panel -->
-    <div class="row container-fluid" style="justify-content: space-around">
+    <div class="row container-fluid" style="justify-content: space-around; margin: 0px;">
       <section class="col-md-5" id="info" style= "margin-bottom: 1em">
-        <h2>About This Site</h2>
+        <h2 class="header-style">About This Site</h2>
         <p><b>Created by:</b> Louisa Molin</p>
         <p>
           Can You Go Net-Zero calculates the amount of trees you would need to
@@ -80,25 +78,26 @@ Contains header info and animated image -->
           today.
         </p>
         <hr class="my-4" />
-        <h2>Disclaimer</h2>
+        <h2 class="header-style">About Net-Zero</h2>
+        <p>Net-zero refers to carbon neutrality, the state of having all 
+          carbon emissions reabsorbed by carbon sinks such as forests. 
+          Because of this, carbon neutrality does not necessitate truly 
+          zero emissions, but merely net-zero emissions.</p>
+        <hr class="my-4" />
+        <h2 class="header-style">Disclaimer</h2>
         <p>
           The carbon footprint calculated by this site is highly inaccurate and
           should be used for demonstrational purposes only. To find your real
           carbon footprint, check out the EPA link on the right.
         </p>
         <hr class="my-4" />
-        <h2>Credits</h2>
-        <p>
-          <b>Emissions measurements by:</b><br> Carbon Interface, a free API that
-          allows businesses to calculate emissions from electricity, vehicles,
-          flights, and more.
-        </p> <b>Photos and photo editing by:</b>
+        <h2 class="header-style">Photos by:</h2>
         <ul>
           <li><a href="https://www.pexels.com/@goumbik">Lukas from Pexels</a></li>
           <li><a href="https://www.pexels.com/@fauxels">Fauxels from Pexels</a></li>
           <li><a href="https://www.pexels.com/@singkham-178541">Singkham from Pexels</a></li>
+          <li><a href="https://www.pexels.com/@brandon-montrone-230847">Brandon from Pexels</a></li>
           <li><a href="https://pixabay.com/">Pixabay</a></li>
-          <li><a href="https://trimmy.io/">trimmy</a></li>
         </ul>
       </p>
       </section>
@@ -112,7 +111,7 @@ Contains header info and animated image -->
         <img class="card-img-top" src="images/pexels-pixabay-414837.jpg" />
         <!--photo by Pixabay-->
         <div class="card-body">
-          <h4 class="card-title">Footprint Calculator</h4>
+          <h4 class="card-title header-style">Footprint Calculator</h4>
           <p class="card-text">
             Find your real carbon footprint with the official calculator from
             EPA.gov.
@@ -124,33 +123,34 @@ Contains header info and animated image -->
         </div>
       </article>
 
-      <!-- survey link -->
+      <!--Net-Zero Roadmap link-->
       <article class="card col-md-5 p-0">
-        <img class="card-img-top" src="images/pexels-lukas-590022.jpg" />
-        <!--Photo by Lukas from Pexels-->
+        <img class="card-img-top" src="images/pexels-singkham-1108572.jpg" />
+        <!--Photo by Singkham from Pexels-->
         <div class="card-body">
-          <h4 class="card-title">Take our Survey</h4>
+          <h4 class="card-title header-style">Net-Zero Roadmap</h4>
           <p class="card-text">
-            Click here to help improve our site by taking a brief survey.
+            An interactive report on what it would take for the world to acheive carbon neutrality by 2050.
+            <a
+              href="https://www.iea.org/reports/net-zero-by-2050"
+              class="stretched-link"
+            ></a>
           </p>
         </div>
       </article>
     </div>
 
     <div class="row">
-      <!--Carbon Interface link-->
+      <!-- Github link -->
       <article class="card col-md-5 p-0">
-        <img class="card-img-top" src="images/pexels-singkham-1108572.jpg" />
-        <!--Photo by Singkham from Pexels-->
+        <img class="card-img-top" src="images/pexels-lukas-590022.jpg" />
+        <!--Photo by Lukas from Pexels-->
         <div class="card-body">
-          <h4 class="card-title">Carbon Interface</h4>
+          <h4 class="card-title header-style">Visit my GitHub</h4>
           <p class="card-text">
-            Check out Carbon Interface, the free API behind all our
-            calculations.
-            <a
-              href="https://www.carboninterface.com/"
-              class="stretched-link"
-            ></a>
+            Click here to view the latest changes and documentation on my GitHub profile. 
+            <a href="https://github.com/lmolin" 
+            class="stretched-link"></a>
           </p>
         </div>
       </article>
@@ -160,7 +160,7 @@ Contains header info and animated image -->
         <img class="card-img-top" src="images/pexels-fauxels-3184163.jpg" />
         <!--Photo by fauxels from Pexels-->
         <div class="card-body">
-          <h4 class="card-title">Per Scholas</h4>
+          <h4 class="card-title header-style">Per Scholas</h4>
           <p class="card-text">
             Apply for a course at Per Scholas and learn to make cool websites like this!
             <a

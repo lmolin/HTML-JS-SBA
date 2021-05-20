@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Bootstrap cdn link-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+    body {
+      background-color: darkslateblue;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 18;
+    }
+    
+    h1, h2, #tree-button, nav {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    section {
+      background-color: white;
+      border-radius: 5px;
+      padding: 2em 2em;
+      margin-bottom: 1em;
+    }
+
+    #main {
+      color: white;
+      background-color: #343a40;
+      background-image: linear-gradient(to bottom, transparent, #343a40 90%),
+        url("images/pexels-cátia-matos-1072179.jpg");
+      background-size: 100% 35em;
+      background-repeat: no-repeat;
+    }
+
+    .row {
+      justify-content: space-around;
+      margin: 0px;
+      align-items:flex-start;
+    }
+    </style>
+  </head>
+  <body>
+    <!--begin navbar -->
+    <nav
+      class="navbar navbar-expand-md navbar-dark bg-dark sticky-top"
+      style="margin-bottom: 1em"
+    >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="form.html">Form</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Results</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- begin grid -->
+    <div class="row">
+      <!-- main section - 
+            this panel displays the number of trees you should plant -->
+      <section class="col-md-6 col-10" id="main">
+        <h1>
+          <span id="name">User</span>, <br />you release
+          <span id="total-emissions">16 tons</span> of CO2 into the atmosphere
+          each year.<br /><br />
+          <small
+            >To go carbon neutral, you would need to plant
+            <span id="trees-number">667</span> trees.</small
+          >
+        </h1>
+        <hr class="my-4"color="white"/>
+        <p>That's this many trees:  <button class="btn btn-sm btn-primary" id="tree-button" onclick="loadTrees()">Load Trees</button></p>
+        <span id="tree-span" style= "font-size: 24px;"></span>
+      </section>
+      <div class="col-md-4 col-10 p-0">
+        <!-- Overview section - 
+            this panel displays more detailed information using a table -->
+        <section>
+          <h2>More details</h2>
+          <table class="table">
+            <thead>
+              <th scope="col">Source</th>
+              <th scope="col">Your Emissions</th>
+              <th scope="col">National Average</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Electricity</td>
+                <td id="electricity-emissions">Not calculated</td>
+                <td>6000 kg/year</td>
+              </tr>
+              <tr>
+                <td>Vehicle</td>
+                <td id="vehicle-emissions">Not calculated</td>
+                <td>4600 kg/year</td>
+              </tr>
+              <tr>
+                <td>Other</td>
+                <td>Not calculated</td>
+                <td>5600 kg/year</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td id="total-emissions-2">Not calculated</td>
+                <td>16000 kg/year</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <!-- Info section -->
+        <section>
+          <h2>About other factors</h2>
+          <p> This site does not calculate emissions from many major contributors to your total carbon emissions, including:
+            <ul>
+              <li>Food</li>
+              <li>Waste</li>
+              <li>Products</li>
+              <li>Air travel</li>
+            </ul>
+            Because of this, your emissions estimate will likely be much lower than your actual carbon footprint.
+          </p>
+        </section>
+      </div>
+    </div>
+    <script>
+      /* get values from url
+      This only works on some browsers. Hopefully i will fix later */
+      var url = window.location.href;
+      var pattern = /(?<=name=).*(?=\&e)|(?<=eEm=).*(?=\&c)|(?<=cEm=).*/g;
+      var results = url.match(pattern);
+
+      var name = results[0];
+      var electric = Number(results[1]);
+      var vehicle = Number(results[2]);
+
+      //check that values were received
+      console.log(
+        "name: " + name + " electric: " + electric + " vehicle: " + vehicle
+      );
+
+      //calculate emissions
+      var totalEmissions = (electric + vehicle) / 1000;
+      var electricKg = electric / 1000;
+      var vehicleKg = vehicle / 1000;
+
+      /* Calculate number of trees,
+         assuming one tree absorbs 21kg co2 per year */
+      var myTrees = Math.ceil(totalEmissions / 21);
+
+      //display info on page
+      document.getElementById("name").innerText = name;
+      document.getElementById("total-emissions").innerText =
+        Math.round(totalEmissions) + " kg";
+      document.getElementById("trees-number").innerText = myTrees;
+      document.getElementById("electricity-emissions").innerText =
+        Math.round(electricKg) + " kg/year";
+      document.getElementById("vehicle-emissions").innerText =
+        Math.round(vehicleKg) + " kg/year";
+      document.getElementById("total-emissions-2").innerText =
+        Math.round(totalEmissions) + " kg";
+
+      /* generate trees 
+         oh gosh i tried so hard to use setTimeout and setInterval
+         so they don't all load at once but those methods do not like me 
+         also for some reason the column gets narrower when this runs? what */
+      function loadTrees() {
+        for (var i = 0; i < myTrees; i++) {
+          document.getElementById("tree-span").
+          insertAdjacentHTML("beforeend","<i class='bi bi-tree-fill'></i>");
+        }
+
+        //remove load trees button
+        document.getElementById("tree-button").remove();
+      }
+    </script>
+  </body>
+</html>

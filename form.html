@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Bootstrap cdn link-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: darkslateblue;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 18px;
+      }
+
+      h1,
+      h2,
+      .text-danger,
+      .header-style {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      .col-10 {
+        background-color: white;
+        border-radius: 5px;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        margin-bottom: 1em;
+      }
+
+      .form-control {
+        max-width: 600px;
+      }
+    </style>
+  </head>
+  <body onload="fillStateSelect()">
+    <!--begin navbar -->
+    <nav
+      class="
+        navbar navbar-expand-md navbar-dark
+        bg-dark
+        sticky-top
+        header-style
+      "
+      style="margin-bottom: 1em"
+    >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Form</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="final.html" disabled>Results</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Begin form section -->
+    <div class="row" style="justify-content: center; margin: 0px">
+      <div class="col-10">
+        <h1>Please answer a few questions.</h1>
+        <hr class="my-4" />
+        <form>
+          <h2>Basic information</h2>
+          <br />
+          <div class="form-group">
+            <!-- get first name -->
+            <label for="first-name">First name:</label>
+            <input
+              type="text"
+              class="form-control required"
+              id="first-name"
+              required
+            /><small class="text-danger">Required</small>
+          </div>
+          <!-- get last name -->
+          <div class="form-group">
+            <label for="last-name">Last name:</label>
+            <input type="text" class="form-control" id="last-name" />
+          </div>
+          <!-- get email address -->
+          <div class="form-group">
+            <label for="email"
+              >Email address:<br />
+              <small>This website will not send you any emails.</small></label
+            >
+            <input type="email" class="form-control" id="email" />
+          </div>
+          <hr my-4 />
+          <h2>Electricity Use</h2>
+          <br />
+          <div class="form-group">
+            <!-- get state (country is assumed to be USA) -->
+            <label for="state-select">Which state do you live in? </label>
+            <select class="form-control required" id="state-select" required>
+              <option></option></select
+            ><small class="text-danger">Required</small>
+          </div>
+          <div class="form-group">
+            <label for="energy"
+              >How many kilowatt-hours of energy do you use in your household
+              per year?<br />
+              <small
+                >The average American household uses 10,600 kWh per year.</small
+              >
+            </label>
+            <input
+              type="number"
+              id="energy"
+              class="form-control required"
+              required
+            /><small class="text-danger">Required</small>
+          </div>
+          <hr class="my-4" />
+          <h2>Vehicle Information</h2>
+          <br />
+          <!-- get fuel type -->
+          <div class="form-group">
+            <label for="form-check-gasoline"
+              >What type of fuel does your car use?</label
+            >
+            <div class="form-check" id="form-check-gasoline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="fuel-type"
+                id="gasoline"
+                checked
+              />
+              <label class="form-check-label" for="gasoline">Gasoline</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                name="fuel-type"
+                type="radio"
+                id="diesel"
+              />
+              <label class="form-check-label" for="diesel">Diesel</label>
+            </div>
+          </div>
+          <!-- get gas mileage -->
+          <div class="form-group">
+            <label for="mileage"
+              >What is your car's fuel efficiency (in miles per gallon)?</label
+            >
+            <input
+              type="number"
+              id="mileage"
+              class="form-control required"
+              required
+            /><small class="text-danger">Required</small>
+          </div>
+          <!-- Get miles driven -->
+          <div class="form-group">
+            <label for="distance">
+              How many miles do you drive per year? <br />
+              <small>The average American drives 13,500 miles per year.</small>
+            </label>
+            <input
+              type="number"
+              id="distance"
+              class="form-control required"
+              required
+            /><small class="text-danger">Required</small>
+          </div>
+          <hr class="my-4" />
+        </form>
+        <!-- Submit button -->
+        <button
+          class="btn btn-lg btn-primary header-style"
+          onclick="getValues(); return false;"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
