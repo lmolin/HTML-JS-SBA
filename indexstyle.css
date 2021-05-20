@@ -1,7 +1,7 @@
 body {
   background-color: lightgray;
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 100;
 }
 
@@ -16,6 +16,7 @@ body {
   padding-bottom: 2em;
   margin: 0px;
   color: white;
+  background: linear-gradient(to right, darkslateblue, black);
   background-color: darkslateblue;
 }
 
@@ -64,4 +65,15 @@ section > .row {
 
 a {
   color: black;
+}
+
+footer {
+  width: 100%;
+  height: 1.5em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #343a40;
 }
